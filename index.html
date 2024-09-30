@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map Visualizations</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Leaflet CSS (For maps) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <style>
+        html, body { width: 100%; height: 100%; margin: 0; padding: 0; }
+        #map-container { position: relative; height: 90vh; }
+        .leaflet-container { height: 100%; width: 100%; }
+        
+        /* Container that limits the maximum width to 1920px */
+        .container-fluid {
+            max-width: 1920px;
+            margin: 0 auto;
+        }
+
+        /* Header layout for title and tabs */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: nowrap;
+            width: 100%;
+        }
+
+        /* Prevent title and tabs from wrapping */
+        .nav-tabs {
+            flex-grow: 1;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        .header h2 {
+            margin: 0;
+            flex-shrink: 0;
+            padding-left: 20px;
+            font-size: 1.5rem; /* Responsive font size */
+        }
+
+        @media (max-width: 768px) {
+            .header h2 {
+                font-size: 1.25rem; /* Smaller font size on mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- Header with Project Title on the right and Tabs on the left -->
+        <div class="col-md-12">
+            <div class="header">
+                <ul class="nav nav-tabs" id="mapTabs" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="all-map-tab" data-bs-toggle="tab" href="#all-map" role="tab" aria-controls="all-map" aria-selected="true">All Conditions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="cold-map-tab" data-bs-toggle="tab" href="#cold-map" role="tab" aria-controls="cold-map" aria-selected="false">Cold Weather</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="foggy-map-tab" data-bs-toggle="tab" href="#foggy-map" role="tab" aria-controls="foggy-map" aria-selected="false">Foggy Weather</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="rainy-map-tab" data-bs-toggle="tab" href="#rainy-map" role="tab" aria-controls="rainy-map" aria-selected="false">Rainy Weather</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="snowy-map-tab" data-bs-toggle="tab" href="#snowy-map" role="tab" aria-controls="snowy-map" aria-selected="false">Snowy Weather</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="map_USA-tab" data-bs-toggle="tab" href="#map_USA" role="tab" aria-controls="map_USA" aria-selected="false">Occurrence Frequency</a>
+                    </li>
+                    <!-- New Prediction Tab -->
+                    <li class="nav-item">
+                        <a class="nav-link" id="prediction-map-tab" data-bs-toggle="tab" href="#prediction-map" role="tab" aria-controls="prediction-map" aria-selected="false">Prediction</a>
+                    </li>
+                </ul>
+                <h2>US Airport Weather Events Cluster Map</h2>
+            </div>
+        </div>
+
+        <!-- Main Content: Tabs and Map Display -->
+        <div class="col-md-12">
+            <div class="tab-content">
+                <!-- All Maps Tab -->
+                <div class="tab-pane fade show active" id="all-map" role="tabpanel" aria-labelledby="all-map-tab">
+                    <div id="map-container">
+                        <!-- Embed your 'map_clusters.html' here -->
+                        <iframe src="updated_map/map_clusters.html" style="width: 100%; height: 100%; border: none;"></iframe>
+                    </div>
+                </div>
+
+                <!-- Cold Weather Map Tab -->
+                <div class="tab-pane fade" id="cold-map" role="tabpanel" aria-labelledby="cold-map-tab">
+                    <div id="map-container">
+                        <!-- Embed your 'airport_cold_cluster_map.html' here -->
+                        <iframe src="updated_map/airport_cold_cluster_map.html" style="width: 100%; height: 100%; border: none;"></iframe>
+                    </div>
+                </div>
+
+                <!-- Foggy Weather Map Tab -->
+                <div class="tab-pane fade" id="foggy-map" role="tabpanel" aria-labelledby="foggy-map-tab">
+                    <div id="map-container">
+                        <!-- Embed your 'airport_foggy_cluster_map.html' here -->
+                        <iframe src="updated_map/airport_foggy_cluster_map.html" style="width: 100%; height: 100%; border: none;"></iframe>
+                    </div>
+                </div>
+
+                <!-- Rainy Weather Map Tab -->
+                <div class="tab-pane fade" id="rainy-map" role="tabpanel" aria-labelledby="rainy-map-tab">
+                    <div id="map-container">
+                        <!-- Embed your 'airport_rainy_cluster_map.html' here -->
+                        <iframe src="updated_map/airport_rainy_cluster_map.html" style="width: 100%; height: 100%; border: none;"></iframe>
+                    </div>
+                </div>
+
+                <!-- Snowy Weather Map Tab -->
+                <div class="tab-pane fade" id="snowy-map" role="tabpanel" aria-labelledby="snowy-map-tab">
+                    <div id="map-container">
+                        <!-- Embed your 'airport_snowy_cluster_map.html' here -->
+                        <iframe src="updated_map/airport_snowy_cluster_map.html" style="width: 100%; height: 100%; border: none;"></iframe>
+                    </div>
+                </div>
+
+                <!-- USA Map for Occurrence Frequency -->
+                <div class="tab-pane fade" id="map_USA" role="tabpanel" aria-labelledby="map_USA-tab">
+                    <div id="map-container">
+                        <!-- Embed your 'map_USA.html' here -->
+                        <iframe src="updated_map/map_USA.html" style="width: 100%; height: 100%; border: none;"></iframe>
+                    </div>
+                </div>
+
+                <!-- Prediction Map Tab -->
+                <div class="tab-pane fade" id="prediction-map" role="tabpanel" aria-labelledby="prediction-map-tab">
+                    <div id="map-container">
+                        <!-- Embed your 'weather_prediction_map_final.html' here -->
+                        <iframe src="updated_map/weather_prediction_map_final.html" style="width: 100%; height: 100%; border: none;"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS (for tabs) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
